@@ -24,6 +24,6 @@
     "fabric-api": "*",
     "fabric-language-kotlin": "*",
     "minecraft": "${minecraft}",
-    "odin": "*"
+    "odin": ">=0.1.3"
   }
 }
