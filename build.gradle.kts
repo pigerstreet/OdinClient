@@ -43,7 +43,8 @@ dependencies {
     modRuntimeOnly(libs.devauth)
 
     modImplementation(libs.fabric.api)
-    modImplementation(libs.odin)
+    modImplementation(files("libs/Odin-0.1.3.jar"))
+    //modImplementation(libs.odin)
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.language.kotlin)
     modImplementation(libs.commodore)

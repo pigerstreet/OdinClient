@@ -6,7 +6,7 @@ import com.odtheking.odin.clickgui.settings.impl.NumberSetting
 import com.odtheking.odin.events.BlockInteractEvent
 import com.odtheking.odin.events.ChatPacketEvent
 import com.odtheking.odin.events.TickEvent
-import com.odtheking.odin.events.WorldLoadEvent
+import com.odtheking.odin.events.WorldEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.features.impl.floor7.SimonSays
@@ -28,7 +28,7 @@ object SimonSaysAdditions : Module(
     var startClickCounter = 0
 
     init {
-        on<WorldLoadEvent> {
+        on<WorldEvent.Load> {
             startClickCounter = 0
         }
 

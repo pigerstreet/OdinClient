@@ -78,7 +78,7 @@ object LividSolver : Module(
         }
 
         // TODO: Fix when this changes to WorldEvent.Load in Odin 0.1.3
-        on<WorldLoadEvent> {
+        on<com.odtheking.odin.events.WorldEvent.Load> {
             currentLivid = Livid.HOCKEY
             currentLivid.entity = null
             invulnTime = 0

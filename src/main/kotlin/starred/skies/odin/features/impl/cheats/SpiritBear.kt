@@ -7,7 +7,7 @@ import com.odtheking.odin.clickgui.settings.impl.SelectorSetting
 import com.odtheking.odin.events.BlockUpdateEvent
 import com.odtheking.odin.events.RenderEvent
 import com.odtheking.odin.events.TickEvent
-import com.odtheking.odin.events.WorldLoadEvent
+import com.odtheking.odin.events.WorldEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.Colors
@@ -97,7 +97,7 @@ object SpiritBear : Module(
             if (timer > 0) timer--
         }
 
-        on<WorldLoadEvent> {
+        on<WorldEvent.Load> {
             kills = 0
             timer = -1
         }
