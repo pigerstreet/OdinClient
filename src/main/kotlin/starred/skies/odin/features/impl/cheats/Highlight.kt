@@ -69,13 +69,13 @@ object Highlight : Module(
             entities.removeIf { entity -> !entity.isAlive }
         }
 
-        on<RenderEvent./*? if >=1.21.10 {*//*Extract*//*?} else {*/Last/*?}*/> {
+        on<RenderEvent.Extract> {
             if (!highlightStar || !DungeonUtils.inDungeons || DungeonUtils.inBoss) return@on
 
             entities.forEach { entity ->
                 if (!entity.isAlive) return@forEach
 
-                /*? if <1.21.10 {*/context./*?}*/drawStyledBox(entity.renderBoundingBox, color, renderStyle, depthCheck)
+                drawStyledBox(entity.renderBoundingBox, color, renderStyle, depthCheck)
             }
         }
 

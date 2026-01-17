@@ -64,11 +64,11 @@ object LividSolver : Module(
             }
         }
 
-        on<RenderEvent./*? if >=1.21.10 {*//*Extract*//*?} else {*/Last/*?}*/> {
+        on<RenderEvent.Extract> {
             if (!DungeonUtils.inBoss || !DungeonUtils.isFloor(5)) return@on
             currentLivid.entity?.let {
-                /*? if <1.21.10 {*/context./*?}*/drawWireFrameBox(it.boundingBox, currentLivid.color, 8f, depthCheck)
-                if (tracer) /*? if <1.21.10 {*/context./*?}*/drawTracer(it.position().addVec(y = it.eyeHeight), currentLivid.color, depth = depthCheck)
+                drawWireFrameBox(it.boundingBox, currentLivid.color, 8f, depthCheck)
+                if (tracer) drawTracer(it.position().addVec(y = it.eyeHeight), currentLivid.color, depth = depthCheck)
             }
         }
 

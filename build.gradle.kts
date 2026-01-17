@@ -10,7 +10,7 @@ plugins {
     `maven-publish`
 }
 
-val mc = stonecutter.current.version
+val mc = "1.21.10"
 
 version = "${property("mod.version")}+$mc"
 base.archivesName = property("mod.id").toString()
@@ -37,13 +37,13 @@ dependencies {
     minecraft("com.mojang:minecraft:$mc")
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("parchment".mc(mc))
+        parchment("org.parchmentmc.data:parchment-$mc:${libs.versions.parchment.get()}")
     })
 
     modRuntimeOnly(libs.devauth)
 
-    modImplementation("fabric-api".mc(mc))
-    modImplementation("odin".mc(mc))
+    modImplementation(libs.fabric.api)
+    modImplementation(libs.odin)
     modImplementation(libs.fabric.loader)
     modImplementation(libs.fabric.language.kotlin)
     modImplementation(libs.commodore)
@@ -126,8 +126,6 @@ fabricApi {
         client = true
     }
 }
-
-fun String.mc(mc: String): Provider<MinimalExternalModuleDependency> = project.extensions.getByType<VersionCatalogsExtension>().named("libs").findLibrary("$this-${mc.replace(".", "_")}").get()
 
 fun DependencyHandler.shadow(dep: Any) {
     include(dep)

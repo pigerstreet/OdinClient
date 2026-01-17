@@ -85,11 +85,11 @@ object SpiritBear : Module(
             if (entity?.isAlive == false) entity = null
         }
 
-        on<RenderEvent./*? if >=1.21.10 {*//*Extract*//*?} else {*/Last/*?}*/> {
+        on<RenderEvent.Extract> {
             if (!DungeonUtils.isFloor(4) || !DungeonUtils.inBoss || !highlightSpirit) return@on
             entity?.let {
-                /*? if <1.21.10 {*/context./*?}*/drawStyledBox(it.renderBoundingBox, color, renderStyle, depthCheck)
-                if (tracer) /*? if <1.21.10 {*/context./*?}*/drawTracer(it.position().addVec(y = it.eyeHeight), color, depth = depthCheck)
+                drawStyledBox(it.renderBoundingBox, color, renderStyle, depthCheck)
+                if (tracer) drawTracer(it.position().addVec(y = it.eyeHeight), color, depth = depthCheck)
             }
         }
 

@@ -42,7 +42,7 @@ object KeyHighlight : Module(
             if (announceKeySpawn) alert("§${currentKey?.colorCode}${entity.name?.string}§7 spawned!")
         }
 
-        on<RenderEvent./*? if >=1.21.10 {*//*Extract*//*?} else {*/Last/*?}*/> {
+        on<RenderEvent.Extract> {
             if (!DungeonUtils.inDungeons || DungeonUtils.inBoss) return@on
             if (currentKey == null || currentKey?.entity == null) return@on
             currentKey?.let { keyType ->
@@ -51,8 +51,8 @@ object KeyHighlight : Module(
                     return@on
                 }
                 val position = keyType.entity?.position()?.add(-0.5, 1.0, -0.5) ?: return@on
-                /*? if <1.21.10 {*/context./*?}*/drawWireFrameBox(AABB.unitCubeFromLowerCorner(position), keyType.color(), 8f, depthCheck)
-                if (tracer) /*? if <1.21.10 {*/context./*?}*/drawTracer(position, tracerColor, depth = depthCheck)
+                drawWireFrameBox(AABB.unitCubeFromLowerCorner(position), keyType.color(), 8f, depthCheck)
+                if (tracer) drawTracer(position, tracerColor, depth = depthCheck)
             }
         }
 
