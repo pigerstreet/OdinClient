@@ -82,6 +82,8 @@ object Trajectories : Module(
             }
 
             if (pearls && heldItem.item is EnderpearlItem) {
+                if (heldItem.displayName?.string?.contains("Spirit") == true) return@on
+
                 val trajectory = /*? if <1.21.10 {*/context./*?}*/calculateTrajectory(0f, isPearl = true)
 
                 if (lines) /*? if <1.21.10 {*/context./*?}*/drawLine(trajectory.first, color, depth, width)
